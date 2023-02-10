@@ -1,5 +1,4 @@
 const MePet = ({mePet}) => {
-  console.log(mePet)
   return (
     <>
       <p className="red">Me pet</p>
