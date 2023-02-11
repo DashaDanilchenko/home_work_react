@@ -21,9 +21,3 @@ export const mePet = {
     year: '3',
     photo: 'https://www.meowguide.com/theme-content/uploads/2020/01/gray-cat-laying-on-quilt.jpg'
 }
-
-export let time = {}
-
-time.hours = new Date().getHours()
-time.minutes = new Date().getMinutes()
-time.seconds = new Date().getSeconds()
