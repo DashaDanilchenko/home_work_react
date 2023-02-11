@@ -1,7 +1,7 @@
 const MePet = ({mePet}) => {
   return (
     <>
-      <p className="red">Me pet</p>
+      <p className="red">My pet</p>
         <hr/>
         <h2>{mePet.pet}</h2>
         <p>{mePet.name}</p>
