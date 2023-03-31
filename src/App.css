@@ -1,3 +1,39 @@
-.App {
-  text-align: center;
+.todo-list {}
+
+.todo-item {
+  padding: 10px;
+  border: 1px solid silver;
+  display: flex;
+  align-items: center;
+}
+.todo-item-inner {
+  margin-right: 10px;
+}
+.todo-item-inner:nth-child(2) {
+  font-weight: bold;
+}
+.todo-item-inner:nth-child(3) {
+  font-size: 20px;
+}
+
+.todo-item input {}
+
+.todo-item-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+}
+.btn {
+  font-size: 30px;
+  padding: 5px;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.btn-edit {
+  color: #20167e;
+}
+.btn-del {
+  color: #ad3520;
 }
