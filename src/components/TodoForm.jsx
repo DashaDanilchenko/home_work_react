@@ -6,10 +6,10 @@ function TodoForm ({addTodo, text, setText}) {
         setText('')
     }
 
-    return <div>
+    return <div className="form">
     <form onSubmit={onSubmitHandler}>
         <input placeholder="Enter new todo" id="edit" value={text} onChange={(e) =>setText(e.target.value)}/>
-        <button>Add</button>
+        <button className="add">Add</button>
     </form>
     </div>
 }
