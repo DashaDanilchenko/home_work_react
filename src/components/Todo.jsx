@@ -1,4 +1,10 @@
-const Todo = ({todo, deleteTodo, edit, toggleTodoHandler}) => {
+import { useContext } from "react";
+import Helpers from "../Helpers";
+
+const Todo = ({todo}) => {
+
+    const { deleteTodo, edit, toggleTodoHandler } = useContext(Helpers)
+    
     
     return (
         <li className="todo-item">

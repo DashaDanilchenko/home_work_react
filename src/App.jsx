@@ -4,6 +4,7 @@ import Search from './components/Search';
 import TodoForm from './components/TodoForm';
 import Todolist from './components/Todolist';
 import CheckRadio from './components/CheckRadio';
+import Helpers from './Helpers';
 
 
 function App() {
@@ -74,16 +75,23 @@ function App() {
     }))
   }
 
-  
+  const helpers = {
+    deleteTodo,
+    edit,
+    toggleTodoHandler,
+  }
 
   return (
-    <div className="container">
+    <Helpers.Provider value = {helpers} >
+      <div className="container">
       <TodoForm addTodo={addTodo} title={title} setTitle={setTitle}/>
       <Search textSearch={textSearch} setTextSearch={setTextSearch}/>
       <CheckRadio check={check} setCheck={setCheck}/>
       <h1>Todo App</h1>
-      <Todolist search={search} deleteTodo={deleteTodo} edit={edit} toggleTodoHandler={toggleTodoHandler} check={check} doneTodo={doneTodo}/>
+      <Todolist search={search} check={check} doneTodo={doneTodo}/>
     </div>
+    </Helpers.Provider>
+    
   );
 }
 
