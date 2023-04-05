@@ -1,14 +1,14 @@
-function TodoForm ({addTodo, text, setText}) {
+function TodoForm ({addTodo, title, setTitle}) {
 
     const onSubmitHandler = (event) => {
         event.preventDefault()
-        addTodo(text)
-        setText('')
+        addTodo(title)
+        setTitle('')
     }
 
     return <div className="form">
     <form onSubmit={onSubmitHandler}>
-        <input placeholder="Enter new todo" id="edit" value={text} onChange={(e) =>setText(e.target.value)}/>
+        <input placeholder="Enter new todo" id="edit" value={title} onChange={(e) =>setTitle(e.target.value)}/>
         <button className="add">Add</button>
     </form>
     </div>

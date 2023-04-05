@@ -1,23 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Search from './components/Search';
 import TodoForm from './components/TodoForm';
 import Todolist from './components/Todolist';
 import CheckRadio from './components/CheckRadio';
 
-function App() {
-  const [todos, setTodos] = useState([
-    {id: 1, text: 'Выучить React JS', done: false},
-    {id: 2, text: 'Выучить Angular', done: true},
-    {id: 3, text: 'Выучить react-router-dom', done: false},
-    {id: 4, text: 'Выучить redux-toolkit', done: false},
-  ]);
 
-  const [text, setText] = useState('')
+function App() {
+  const [todos, setTodos] = useState (() => {
+    return (JSON.parse(localStorage.getItem('todos'))) || []}
+  );
+  const [title, setTitle] = useState('')
   const [textSearch, setTextSearch] = useState('')
-  const [indexTodo, setIndexTodo] = useState(0)
-  const [done, setDone] = useState(false)
   const [check, setCheck] = useState(true)
+
+  useEffect(() => {
+    if (!localStorage.todos) {
+      fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+      .then(response => response.json())
+      .then(json => setTodos(json))
+    } 
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
 
   function str_gen() {
     const allStr = '123456789QWERTYUIOPASDFGHJKLZXCVBNM';
@@ -30,11 +38,12 @@ function App() {
 }
 
 
-  function addTodo (text) {
+  function addTodo (title) {
     const newTodo = {
-      text,
+      title,
       id: str_gen(),
-      done: false,
+      userId: str_gen(),
+      completed: false,
     }
     setTodos([newTodo, ...todos])
   }
@@ -43,40 +52,24 @@ function App() {
     setTodos (todos.filter((todo) => todo.id !== id))
   }
 
-  function edit (id, text) {
-    setText (text)
+  function edit (id, title) {
+    setTitle (title)
     deleteTodo (id)
   }
 
   function search () {
-    return todos.filter((todo) => todo.text.toLowerCase().includes(textSearch.toLowerCase()))
+    return todos.filter((todo) => todo.title.toLowerCase().includes(textSearch.toLowerCase()))
   }
 
   function doneTodo () {
-    return todos.filter((todo) => todo.done === true)
+    return todos.filter((todo) => todo.completed === true)
   }
 
   const toggleTodoHandler = (id) => {
 
-    todos.forEach((todo, index) => {
-      if (todo.id === id) {
-        setIndexTodo(index)
-        setDone(todo.done)
-      }
-    })
-
-    if (done) {
-      setTodos([...todos, todos[indexTodo]])
-      todos.splice(indexTodo, 1)
-    } else {
-      setTodos([ todos[indexTodo], ...todos])
-      todos.splice((indexTodo + 1), 1)
-      
-    }
-
     setTodos(todos.map((todo) => {
       return todo.id === id
-      ?{...todo, done: !todo.done}
+      ?{...todo, completed: !todo.completed}
       :{...todo}
     }))
   }
@@ -85,7 +78,7 @@ function App() {
 
   return (
     <div className="container">
-      <TodoForm addTodo={addTodo} text={text} setText={setText}/>
+      <TodoForm addTodo={addTodo} title={title} setTitle={setTitle}/>
       <Search textSearch={textSearch} setTextSearch={setTextSearch}/>
       <CheckRadio check={check} setCheck={setCheck}/>
       <h1>Todo App</h1>
