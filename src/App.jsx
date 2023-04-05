@@ -15,8 +15,8 @@ function App() {
 
   const [text, setText] = useState('')
   const [textSearch, setTextSearch] = useState('')
-  const [indexTodo, setIndexTodo] = useState(0)
-  const [done, setDone] = useState(false)
+  // const [indexTodo, setIndexTodo] = useState(0)
+  // const [done, setDone] = useState(false)
   const [check, setCheck] = useState(true)
 
   function str_gen() {
@@ -58,21 +58,21 @@ function App() {
 
   const toggleTodoHandler = (id) => {
 
-    todos.forEach((todo, index) => {
-      if (todo.id === id) {
-        setIndexTodo(index)
-        setDone(todo.done)
-      }
-    })
+    // todos.forEach((todo, index) => {
+    //   if (todo.id === id) {
+    //     setIndexTodo(index)
+    //     setDone(todo.done)
+    //   }
+    // })
 
-    if (done) {
-      setTodos([...todos, todos[indexTodo]])
-      todos.splice(indexTodo, 1)
-    } else {
-      setTodos([ todos[indexTodo], ...todos])
-      todos.splice((indexTodo + 1), 1)
+    // if (done) {
+    //   setTodos([...todos, todos[indexTodo]])
+    //   todos.splice(indexTodo, 1)
+    // } else {
+    //   setTodos([ todos[indexTodo], ...todos])
+    //   todos.splice((indexTodo + 1), 1)
       
-    }
+    // }
 
     setTodos(todos.map((todo) => {
       return todo.id === id
