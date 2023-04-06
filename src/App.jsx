@@ -15,6 +15,16 @@ function App() {
   const [textSearch, setTextSearch] = useState('')
   const [check, setCheck] = useState(true)
 
+  useEffect (() => {
+    setTodos( todos.sort((a, b) => {
+      if (!a.completed) {
+        return -1
+      }
+      return b
+     })
+    )
+  }, [todos])
+
   useEffect(() => {
     if (!localStorage.todos) {
       fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
