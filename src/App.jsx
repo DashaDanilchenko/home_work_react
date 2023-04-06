@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Search from './components/Search';
 import TodoForm from './components/TodoForm';
@@ -15,9 +15,17 @@ function App() {
 
   const [text, setText] = useState('')
   const [textSearch, setTextSearch] = useState('')
-  // const [indexTodo, setIndexTodo] = useState(0)
-  // const [done, setDone] = useState(false)
   const [check, setCheck] = useState(true)
+
+  useEffect (() => {
+    setTodos( todos.sort((a, b) => {
+      if (!a.done) {
+        return -1
+      }
+      return b
+     })
+    )
+  }, [todos])
 
   function str_gen() {
     const allStr = '123456789QWERTYUIOPASDFGHJKLZXCVBNM';
@@ -57,22 +65,6 @@ function App() {
   }
 
   const toggleTodoHandler = (id) => {
-
-    // todos.forEach((todo, index) => {
-    //   if (todo.id === id) {
-    //     setIndexTodo(index)
-    //     setDone(todo.done)
-    //   }
-    // })
-
-    // if (done) {
-    //   setTodos([...todos, todos[indexTodo]])
-    //   todos.splice(indexTodo, 1)
-    // } else {
-    //   setTodos([ todos[indexTodo], ...todos])
-    //   todos.splice((indexTodo + 1), 1)
-      
-    // }
 
     setTodos(todos.map((todo) => {
       return todo.id === id
