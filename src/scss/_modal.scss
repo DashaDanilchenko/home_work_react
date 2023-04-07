@@ -1,0 +1,12 @@
+.window {
+    width: 300px;
+    height: 300px;
+    background: rgb(180, 224, 224);
+    position: fixed;
+    top: calc(50% - 150px);
+    left: calc(50% - 150px);
+}
+
+.none {
+   display: none;
+}
