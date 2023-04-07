@@ -1,36 +1,7 @@
-.todo-item {
+.list-item {
     padding: 10px;
-    border: 1px solid silver;
-    display: flex;
+    border: 2px solid black;
     align-items: center;
-    &-inner {
-      margin-right: 10px;
-      &:nth-child(2) {
-        font-weight: bold;
-      }
-      &:nth-child(3) {
-        font-size: 20px;
-      }
-    }
-  
-    input {}
-  
-    &-actions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-left: auto;
-    }
-
-    &-done {
-      background: #dddddd;
-      font-style: italic;
-      color: grey;
-      text-decoration: line-through;
-      .btn {
-        color: grey;
-      }
-    }
   }
 
   .btn {
@@ -48,7 +19,7 @@
   }
 
   img {
-    width: 200px;
+    width: 100px;
     margin: 20px;
   }
 

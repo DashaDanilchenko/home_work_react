@@ -4,13 +4,26 @@ import Context from "../Context";
 const Product = ({ product }) => {
     const {  watch } = useContext(Context);
 
+    function postData(id) {
+        const objectId = {id}
+            fetch("http://localhost:3000/bucket", { 
+              headers: {
+                "Content-Type": "application/json",
+              },
+              method: "POST", 
+              body: JSON.stringify(objectId),
+            });
+        }
+    
+
     return (
-        <li >
-            <h1 className="todo-item-inner">{ product.title }</h1>
+        <div className="list-item">
+            <h1>{ product.title }</h1>
             <span>{product.description}</span>
             <span>{product.price}</span>
             <img src={product.img} alt="" onClick={() => watch(product.title)}/>
-        </li>
+            <button onClick={() => postData(product.id)}>Bucket</button>
+        </div>
     )
 }
 
