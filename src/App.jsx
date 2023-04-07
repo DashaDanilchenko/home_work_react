@@ -20,7 +20,7 @@ function App() {
       if (!a.completed) {
         return -1
       }
-      return b
+      return 1
      })
     )
   }, [todos])
