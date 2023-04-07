@@ -1,18 +1,24 @@
 import { useContext } from "react";
 import Context from "../Context";
+import { async } from "q";
 
-const Product = ({ product }) => {
+const Product = ({ product, productId, setProductId }) => {
     const {  watch } = useContext(Context);
 
-    function postData(id) {
+    async function postData(id) {
+        setProductId([...productId, id])
         const objectId = {id}
-            fetch("http://localhost:3000/bucket", { 
+        const res = await  fetch("http://localhost:3000/bucket", { 
               headers: {
                 "Content-Type": "application/json",
               },
               method: "POST", 
               body: JSON.stringify(objectId),
             });
+
+            const data = await res.json()
+            console.log(data)
+            console.log(productId)
         }
     
 

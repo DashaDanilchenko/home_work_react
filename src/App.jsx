@@ -19,11 +19,14 @@ function App() {
       .then(json => setProducts(json))
   }, []);
 
-  useEffect(() => {
-    fetch('http://localhost:3000/bucket')
-      .then(response => response.json())
-      .then(json => setProductId(json))
-  }, []);
+  // useEffect(() => {
+  //   fetch('http://localhost:3000/bucket')
+  //     .then(response => response.json())
+  //     .then(json => setProductId(json))
+
+  //     return productId
+
+  // }, [productId]);
 
   useEffect (() => {
     setBucket( products.forEach((p) => {
@@ -35,7 +38,7 @@ function App() {
     }))
   }, [productId, products])
 
-  // console.log(productId)
+  console.log(productId)
 
   function watch (data) {
     setModal (true)
@@ -56,7 +59,7 @@ function App() {
     <Context.Provider value={ context }>
       <ModalWindows/>
       <div className="container">
-        <Bucket bucket={bucket}/>
+        <Bucket productId={productId} setProductId={setProductId}/>
         <ListProducts products={ products } />
       </div>
     </Context.Provider>
