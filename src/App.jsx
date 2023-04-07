@@ -6,12 +6,9 @@ import Bucket from './components/Bucket';
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [productId, setProductId] = useState([])
   const [bucket, setBucket] = useState([])
   const [modal, setModal] = useState(false)
   const [data, setData] = useState(null)
-
-  // const [dataId, setDataId] = useState(0)
 
   useEffect(() => {
     fetch('http://localhost:3000/products')
@@ -19,26 +16,11 @@ function App() {
       .then(json => setProducts(json))
   }, []);
 
-  // useEffect(() => {
-  //   fetch('http://localhost:3000/bucket')
-  //     .then(response => response.json())
-  //     .then(json => setProductId(json))
-
-  //     return productId
-
-  // }, [productId]);
-
-  useEffect (() => {
-    setBucket( products.forEach((p) => {
-      productId.forEach((i) => {
-        if (p.id === i.id) {
-          return p
-        }
-      })
-    }))
-  }, [productId, products])
-
-  console.log(productId)
+  useEffect(() => {
+    fetch('http://localhost:3000/bucket')
+      .then(response => response.json())
+      .then(json => setBucket(json))
+  }, []);
 
   function watch (data) {
     setModal (true)
@@ -46,12 +28,12 @@ function App() {
   }
 
   const context = { 
-    products,
-    modal,
+    bucket,
+    setBucket,
+    watch,
+    modal, 
     setModal,
     data,
-    setData,
-    watch,
   };
 
 
@@ -59,7 +41,7 @@ function App() {
     <Context.Provider value={ context }>
       <ModalWindows/>
       <div className="container">
-        <Bucket productId={productId} setProductId={setProductId}/>
+        <Bucket bucket={bucket} setBucket={setBucket}/>
         <ListProducts products={ products } />
       </div>
     </Context.Provider>
