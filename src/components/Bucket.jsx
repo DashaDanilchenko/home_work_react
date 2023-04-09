@@ -1,22 +1,16 @@
 const Bucket = ({products, didBuy}) => {
 
-  // function deleteData(id) {
-
-  //   fetch(`http://localhost:3000/bucket/${id}`, { 
-  //     method: "DELETE", 
-  //   });
-
-  //   }
-
-
-  //   console.log(bucket)
 
   return (
     <div>
       <ul>
-      {products.map((product) => <li key={product.id}>{product.title}
+      {products.map((product) => 
+       product.buy
+      ? <li key={product.id}>{product.title}
         <button onClick={() => didBuy(product.id)}>delete</button>
-      </li>)}
+      </li>
+      : ""
+      )}
       </ul>
     </div>
   )

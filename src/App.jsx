@@ -25,6 +25,31 @@ function App() {
         });
     }
 
+    // async function postData(id, title) {
+    //     const objectId = {id, title}
+    //     const res = await fetch("http://localhost:3000/bucket", { 
+    //           headers: {
+    //             "Content-Type": "application/json",
+    //           },
+    //           method: "POST", 
+    //           body: JSON.stringify(objectId),
+    //         });
+
+    //         const obj = await res.json()
+    //         setBucket([...bucket, obj])
+    //     }
+       
+
+    // function deleteData(id) {
+
+  //   fetch(`http://localhost:3000/bucket/${id}`, { 
+  //     method: "DELETE", 
+  //   });
+
+  //   }
+
+  
+
   function watch (data) {
     setModal (true)
     setData(data)
