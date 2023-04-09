@@ -6,7 +6,6 @@ import Bucket from './components/Bucket';
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [bucket, setBucket] = useState([])
   const [modal, setModal] = useState(false)
   const [data, setData] = useState(null)
 
@@ -16,11 +15,15 @@ function App() {
       .then(json => setProducts(json))
   }, []);
 
-  useEffect(() => {
-    fetch('http://localhost:3000/bucket')
-      .then(response => response.json())
-      .then(json => setBucket(json))
-  }, []);
+  function didBuy(product) {
+    fetch(`http://localhost:3000/products/${product.id}`, { 
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "PUT", 
+          body: JSON.stringify({...product, buy : !product.buy}),
+        });
+    }
 
   function watch (data) {
     setModal (true)
@@ -28,8 +31,7 @@ function App() {
   }
 
   const context = { 
-    bucket,
-    setBucket,
+    didBuy,
     watch,
     modal, 
     setModal,
@@ -41,8 +43,8 @@ function App() {
     <Context.Provider value={ context }>
       <ModalWindows/>
       <div className="container">
-        <Bucket bucket={bucket} setBucket={setBucket}/>
-        <ListProducts products={ products } />
+        <Bucket products={products} didBuy={didBuy}/>
+        <ListProducts products={ products }/>
       </div>
     </Context.Provider>
   );
