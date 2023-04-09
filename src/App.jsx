@@ -5,15 +5,17 @@ import ModalWindows from './components/ModalWindows';
 import Bucket from './components/Bucket';
 
 function App() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([])
+  const [data, setData] = useState({})
+  const [read, setRead] = useState(true)
   const [modal, setModal] = useState(false)
-  const [data, setData] = useState(null)
+  const [bucket, setBucket] = useState(false)
 
   useEffect(() => {
     fetch('http://localhost:3000/products')
       .then(response => response.json())
       .then(json => setProducts(json))
-  }, []);
+  }, [read]);
 
   function didBuy(product) {
     fetch(`http://localhost:3000/products/${product.id}`, { 
@@ -23,9 +25,43 @@ function App() {
           method: "PUT", 
           body: JSON.stringify({...product, buy : !product.buy}),
         });
+        setRead(!read) 
     }
 
-    // async function postData(id, title) {
+  function watch (data) {
+    setData(data)
+    setModal (true)
+  }
+
+  const context = { 
+    didBuy,
+    watch,
+    modal, 
+    setModal,
+    data,
+  };
+
+
+  return (
+    <Context.Provider value={ context }>
+      <ModalWindows/>
+      <div className="container">
+        {
+          bucket
+          ? <Bucket products={products} didBuy={didBuy} setBucket={setBucket}/>
+          :<button className="bucket cursor" onClick={() => setBucket(true)}><i class="fa-solid fa-bucket"></i> </button>
+        }
+        <ListProducts products={ products }/>
+      </div>
+    </Context.Provider>
+  );
+}
+
+export default App;
+
+
+
+// async function postData(id, title) {
     //     const objectId = {id, title}
     //     const res = await fetch("http://localhost:3000/bucket", { 
     //           headers: {
@@ -47,32 +83,3 @@ function App() {
   //   });
 
   //   }
-
-  
-
-  function watch (data) {
-    setModal (true)
-    setData(data)
-  }
-
-  const context = { 
-    didBuy,
-    watch,
-    modal, 
-    setModal,
-    data,
-  };
-
-
-  return (
-    <Context.Provider value={ context }>
-      <ModalWindows/>
-      <div className="container">
-        <Bucket products={products} didBuy={didBuy}/>
-        <ListProducts products={ products }/>
-      </div>
-    </Context.Provider>
-  );
-}
-
-export default App;

@@ -1,21 +1,28 @@
 .list-item {
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+ justify-content: space-between;
+    padding: 20px;
     border: 2px solid black;
     align-items: center;
+    margin: 10px;
   }
 
-  .btn {
-    font-size: 30px;
-    padding: 5px;
-    &:hover {
-      cursor: pointer;
-    }
-    &-edit {
-      color: #20167e;
-    }
-    &-del {
-      color: #ad3520;
-    }
+  .cursor {
+    cursor: pointer;
+  }
+
+  .button-buy {
+     margin-bottom: 5px;
+     width: 50px;
+     background: rgb(207, 135, 75);
+     padding: 2px;
+     cursor: pointer;
+  }
+
+  .disabled {
+    background: rgb(202, 183, 166);
   }
 
   img {
@@ -27,9 +34,12 @@
     margin: 20px;
   }
 
-  .red {
-    display: block;
-    background: #ad3520;
-    padding: 10px 20px;
-    margin: 20px auto;
+
+  li {
+    margin: 10px;
+  }
+
+  .delete {
+    margin-left: 20px;
+    cursor: pointer;
   }

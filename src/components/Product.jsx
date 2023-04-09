@@ -6,12 +6,11 @@ const Product = ({ product }) => {
     const {  watch, didBuy } = useContext(Context);
 
     return (
-        <div className="list-item">
-            <h1>{ product.title }</h1>
-            <span>{product.description}</span>
+        <div className="list-item" >
+            <h1 className="cursor cursor" onClick={() => watch(product)}>{ product.title }</h1>
             <span>{product.price}</span>
-            <img src={product.img} alt="" onClick={() => watch(product.title)}/>
-            <button onClick={() => didBuy( product )}>Bucket</button>
+            <img src={product.img} alt="" />
+            <button className={product.buy ? "button-buy disabled" : "button-buy"} onClick={() => didBuy( product )} disabled={product.buy}>Buy</button>
         </div>
     )
 }

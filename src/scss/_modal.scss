@@ -1,12 +1,19 @@
 .window {
-    width: 300px;
-    height: 300px;
+    width: 600px;
+    height: 600px;
     background: rgb(180, 224, 224);
     position: fixed;
-    top: calc(50% - 150px);
-    left: calc(50% - 150px);
+    top: calc(50% - 300px);
+    left: calc(50% - 300px);
+    padding: 30px;
 }
 
 .none {
    display: none;
+}
+
+.close {
+    margin-bottom: 30px;
+    width: 30px;
+    height: 30px;
 }
