@@ -1,16 +1,22 @@
-import { useContext } from "react";
-import Context from "../Context";
+import { useEffect, useState } from "react";
 
-const Product = ({ product }) => {
+const Product = () => {
 
-    const {  watch, didBuy } = useContext(Context);
+    const [product, setProduct] = useState({})
+
+    useEffect(() => {
+        fetch(`http://localhost:3000/products/${id}`)
+        .then(response => response.json())
+        .then(json => setProduct(json))
+    }, [id])
+
 
     return (
         <div className="list-item" >
-            <h1 className="cursor cursor" onClick={() => watch(product)}>{ product.title }</h1>
+            <h1 className="cursor" onClick={() => console.log( product.id )}>{ product.title }</h1>
             <span>{product.price}</span>
             <img src={product.img} alt="" />
-            <button className={product.buy ? "button-buy disabled" : "button-buy"} onClick={() => didBuy( product )} disabled={product.buy}>Buy</button>
+            <button className="button-buy" onClick={() => console.log( product )}>Buy</button>
         </div>
     )
 }

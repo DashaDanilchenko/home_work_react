@@ -1,30 +1,24 @@
-import { useState, useEffect } from 'react';
-import Context from './Context';
+
 import Bucket from './components/Bucket';
 import Home from './components/Home';
+import Layout from './components/Layout';
+import Product from './components/Product';
+import NotFound from './components/NotFound';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
-  const [products, setProducts] = useState([])
-
-  useEffect(() => {
-    fetch('http://localhost:3000/products')
-      .then(response => response.json())
-      .then(json => setProducts(json))
-  }, []);
-
-
-  const context = { 
-    
-  };
 
 
   return (
-    <Context.Provider value={ context }>
-      <div className="container">
-         <Bucket products={products}/>
-        <Home products={ products }/>
-      </div>
-    </Context.Provider>
+   <Routes>
+    <Route path='/' element={<Layout/>}>
+      <Route index element={<Home/>}/>
+      <Route path='/:id' element={<Product/>}/>
+      <Route path='bucket' element={<Bucket/>}/>
+      <Route path='*' element={<NotFound/>}/>
+      <Route/>
+    </Route>
+   </Routes>
   );
 }
 
