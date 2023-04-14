@@ -1,13 +1,8 @@
-import { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
-import Context from "../Context";
 
 
-const Product = ({product}) => {
-
-    
-
-    const [bucket, setBucket] = useState({})
+const Product = ({product, bucket, setBucket}) => {
 
     function str_gen() {
         const allStr = '123456789QWERTYUIOPASDFGHJKLZXCVBNM';
@@ -34,29 +29,16 @@ const Product = ({product}) => {
             setBucket([...bucket, obj])
     }
 
-    useEffect(() => {
-        fetch('http://localhost:3000/bucket')
-          .then(response => response.json())
-          .then(json => setBucket(json))
-      }, []);
-    
-      console.log(bucket)
-
-    const context = {
-        bucket,
-        setBucket,
-    }
-
 
     return (
-        <Context.Provider value={ context }>
+        
         <div className="list-item"  >
             <Link className="cursor" to={`/${product.id}`}>{ product.title }</Link>
             <span>{product.price}</span>
             <img src={product.img} alt="" />
             <button className="button-buy" onClick={() => buyProduct( product.title )}>Buy</button>
         </div>
-        </Context.Provider> 
+       
     )
 }
 

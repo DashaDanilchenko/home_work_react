@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Product from "./Product";
 import { Link } from 'react-router-dom';
 
-const Home = () => {
+const Home = ({bucket, setBucket}) => {
 
     const [products, setProducts] = useState([])
 
@@ -14,11 +14,13 @@ const Home = () => {
 
   return (
     <div>
-         <Link to="bucket">Bucket</Link>
+         <Link className="link"  to="bucket">Bucket</Link>
             <div className="list">
                 { products.map((product) => <Product 
                                                 key={ product.id }  
                                                 product={ product }
+                                                bucket={bucket}
+                                                setBucket={setBucket}
                                             />
                             )
                 }

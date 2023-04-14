@@ -1,3 +1,16 @@
 .list {
     display: flex;
 }
+
+.item {
+    display: flex;
+    align-items: center;
+    background: aqua;
+    width: 400px;
+}
+
+.link {
+    padding: 10px 20px;
+    background: pink;
+    text-decoration: none;
+}

@@ -1,21 +1,23 @@
 import { Link } from "react-router-dom";
-import { useContext } from 'react';
-import Context from "../Context";
 
-const Bucket = () => {
+const Bucket = ({bucket, read, setRead}) => {
 
-  const { bucket } = useContext(Context);
+   function deleteData(id) {
+    fetch(`http://localhost:3000/bucket/${id}`, { 
+      method: "DELETE", 
+    });
+    setRead(!read)
+    }
 
-  
 
   return (
     <div className="bucket">
       
-      <Link to="/">Home</Link>
+      <Link className="link"  to="/">Home</Link>
       <ul>
-        {bucket.map((item) => <li key={item.id}>
+        {bucket.map((item) => <li className="item" key={item.id}>
           <span>{item.title}</span>
-          <button className="close" onClick={() => console.log (false)}><i className="fa-solid fa-xmark"></i></button>
+          <button  onClick={() => deleteData(item.id)}>delete</button>
         </li>)}
       </ul>
     </div>

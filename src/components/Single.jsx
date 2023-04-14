@@ -7,19 +7,16 @@ const Single = () => {
     const [product, setProduct] = useState({})
     const {id} = useParams()
 
-    console.log(id)
-
     useEffect(() => {
         fetch(`http://localhost:3000/products/${id}`)
         .then(response => response.json())
         .then(json => setProduct(json))
     }, [id])
 
-    console.log(product)
 
   return (
     <div>
-        <Link to="/">Home</Link>
+        <Link className="link" to="/">Home</Link>
         <h1 className="cursor">{ product.title }</h1>
             <span>{product.price}</span>
             <p>{product.description}</p>
