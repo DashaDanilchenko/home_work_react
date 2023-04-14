@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 
 function App() {
 
-  const [bucket, setBucket] = useState({})
+  const [bucket, setBucket] = useState([])
   const [read, setRead] = useState(true)
 
   useEffect(() => {
@@ -33,28 +33,3 @@ function App() {
 }
 
 export default App;
-
-
-
-// async function postData(id, title) {
-    //     const objectId = {id, title}
-    //     const res = await fetch("http://localhost:3000/bucket", { 
-    //           headers: {
-    //             "Content-Type": "application/json",
-    //           },
-    //           method: "POST", 
-    //           body: JSON.stringify(objectId),
-    //         });
-
-    //         const obj = await res.json()
-    //         setBucket([...bucket, obj])
-    //     }
-       
-
-    // function deleteData(id) {
-
-  //   fetch(`http://localhost:3000/bucket/${id}`, { 
-  //     method: "DELETE", 
-  //   });
-
-  //   }

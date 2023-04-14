@@ -9,7 +9,6 @@ const Bucket = ({bucket, read, setRead}) => {
     setRead(!read)
     }
 
-
   return (
     <div className="bucket">
       
