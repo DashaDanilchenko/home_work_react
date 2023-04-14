@@ -2,7 +2,7 @@
 import Bucket from './components/Bucket';
 import Home from './components/Home';
 import Layout from './components/Layout';
-import Product from './components/Product';
+import Single from './components/Single';
 import NotFound from './components/NotFound';
 import { Route, Routes } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ function App() {
    <Routes>
     <Route path='/' element={<Layout/>}>
       <Route index element={<Home/>}/>
-      <Route path='/:id' element={<Product/>}/>
+      <Route path='/:id' element={<Single/>}/>
       <Route path='bucket' element={<Bucket/>}/>
       <Route path='*' element={<NotFound/>}/>
       <Route/>

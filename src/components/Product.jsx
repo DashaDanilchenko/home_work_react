@@ -1,19 +1,12 @@
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const Product = () => {
 
-    const [product, setProduct] = useState({})
-
-    useEffect(() => {
-        fetch(`http://localhost:3000/products/${id}`)
-        .then(response => response.json())
-        .then(json => setProduct(json))
-    }, [id])
+const Product = ({product}) => {
 
 
     return (
         <div className="list-item" >
-            <h1 className="cursor" onClick={() => console.log( product.id )}>{ product.title }</h1>
+            <Link className="cursor" to={`/${product.id}`}>{ product.title }</Link>
             <span>{product.price}</span>
             <img src={product.img} alt="" />
             <button className="button-buy" onClick={() => console.log( product )}>Buy</button>
