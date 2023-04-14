@@ -5,7 +5,7 @@
       "title": "dear",
       "description": "Personalised Teddy Bear Bonnie bear is another one of our firm favourites and most popular teddies here at Bears 4 U. She has super soft honey coloured fur and a fat squidgy tummy making her perfect to cuddle up to. She has an adorable face with glass eyes, a big brown nose and huge smiley face. Bonnie teddy includes a personalised with a jumper or hoodie with your own customised message on it in an embroidery colour of your choice. You can also customise this bear by adding a personalised ribbon or tag to go around her neck. Bonnie is 13″ head to toe (10″ sitting) and is suitable from 12 months up.",
       "price": "20 $",
-      "buy": false,
+      "buy": true,
       "img": "https://media.istockphoto.com/id/909772478/photo/brown-teddy-bear-isolated-in-front-of-a-white-background.jpg?s=612x612&w=0&k=20&c=F4252bOrMfRTB8kWm2oM2jlb9JXY08tKCaO5G_ms1Uw="
     },
     {
@@ -29,7 +29,7 @@
       "title": "mug",
       "description": "The image is on both sides of the mug. Would make a great gift for any occasion. 11oz Approx. Measurements: Height: 9.5cm x 8cm. Comes in Various Coloured Handle/Rims.",
       "price": "10 $",
-      "buy": true,
+      "buy": false,
       "img": "https://i.etsystatic.com/21499050/r/il/b4d648/3624682708/il_794xN.3624682708_l020.jpg"
     }
   ],
