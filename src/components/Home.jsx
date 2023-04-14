@@ -12,9 +12,9 @@ const Home = () => {
         .then(json => setProducts(json))
     }, []);
 
-    return (
-        <>
-        <Link to="bucket">Bucket</Link>
+  return (
+    <div>
+         <Link to="bucket">Bucket</Link>
             <div className="list">
                 { products.map((product) => <Product 
                                                 key={ product.id }  
@@ -23,8 +23,8 @@ const Home = () => {
                             )
                 }
             </div>
-        </>
-    );
+    </div>
+  )
 }
 
 export default Home;

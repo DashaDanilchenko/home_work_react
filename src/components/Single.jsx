@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Single = () => {
 
     const [product, setProduct] = useState({})
-    const {id} = useParams
+    const {id} = useParams()
 
     console.log(id)
 
