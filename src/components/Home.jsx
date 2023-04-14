@@ -1,6 +1,6 @@
 import Product from "./Product";
 
-const ListProducts = ({ products }) => {
+const Home = ({ products }) => {
     return (
         <>
             <div className="list">
@@ -15,4 +15,4 @@ const ListProducts = ({ products }) => {
     );
 }
 
-export default ListProducts;
+export default Home;

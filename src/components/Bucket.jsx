@@ -1,15 +1,15 @@
-const Bucket = ({products, didBuy, setBucket }) => {
+const Bucket = ({products }) => {
 
 
   return (
-    <div className="window">
-      <button className="close" onClick={() => setBucket (false)}><i className="fa-solid fa-xmark"></i></button>
+    <div className="bucket">
+      <button className="close" onClick={() => console.log (false)}><i className="fa-solid fa-xmark"></i></button>
       <ul>
       {products.map((product) => 
        product.buy
       ? 
       <li key={product.id}>{product.title}
-        <button className="delete" onClick={() => didBuy(product)}>delete</button>
+        <button className="delete" onClick={() => console.log(product)}>delete</button>
       </li>
       
       : ""

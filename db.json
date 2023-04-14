@@ -5,7 +5,6 @@
       "title": "dear",
       "description": "Personalised Teddy Bear Bonnie bear is another one of our firm favourites and most popular teddies here at Bears 4 U. She has super soft honey coloured fur and a fat squidgy tummy making her perfect to cuddle up to. She has an adorable face with glass eyes, a big brown nose and huge smiley face. Bonnie teddy includes a personalised with a jumper or hoodie with your own customised message on it in an embroidery colour of your choice. You can also customise this bear by adding a personalised ribbon or tag to go around her neck. Bonnie is 13″ head to toe (10″ sitting) and is suitable from 12 months up.",
       "price": "20 $",
-      "buy": true,
       "img": "https://media.istockphoto.com/id/909772478/photo/brown-teddy-bear-isolated-in-front-of-a-white-background.jpg?s=612x612&w=0&k=20&c=F4252bOrMfRTB8kWm2oM2jlb9JXY08tKCaO5G_ms1Uw="
     },
     {
@@ -13,15 +12,12 @@
       "title": "book",
       "description": "Many people dream of traveling and seeing the wonders of nature but are afraid to take a step forward to fulfill these dreams. Being a woman and wanting to travel to India is not easy.  This book, through my personal experience, will give you enough insights and confidence to pack your bags and book your tickets to fulfill your dream. It covers various things which you need to know when traveling in India such as food, accommodation, dealing with men, etc. If you have never been to this country, it will help you to overcome the fears of the unknown and prepare you for what to expect when you are doing solo travel in India",
       "price": "15 $",
-      "buy": true,
       "img": "https://www.bookgeeks.in/wp-content/uploads/2022/08/A-Womans-Journey-Through-India-Madhu-Veena-Book.jpg"
     },
     {
       "id": 3,
       "title": "pen",
       "description": "The special elegance of the LAMY Studio demonstrates just how close design and art can be. The propeller-shaped clip accents the pen’s innovative form. The warmly shining, deep dark brown shade pleasantly and subtly underlines the timeless appearance of these stylish writing instruments. Perfect writing comfort and high-quality materials are combined here with designer Hannes Wettstein's innovative design accent. LAMY giant refill M 16 black M. Ballpoint with twist mechanism Delivered in Lamy gift box",
-      "price": "5 $",
-      "buy": false,
       "img": "https://parker.com.ua/14230-large_default/-parker-jotter-17-xl-matt-green-ct-bp-12-332.jpg"
     },
     {
@@ -29,21 +25,10 @@
       "title": "mug",
       "description": "The image is on both sides of the mug. Would make a great gift for any occasion. 11oz Approx. Measurements: Height: 9.5cm x 8cm. Comes in Various Coloured Handle/Rims.",
       "price": "10 $",
-      "buy": false,
       "img": "https://i.etsystatic.com/21499050/r/il/b4d648/3624682708/il_794xN.3624682708_l020.jpg"
     }
   ],
   "bucket": [
-    {
-      "id": 1,
-      "title": "toy"
-    },
-    {
-      "id": 3,
-      "title": "hufise",
-      "description": "description...",
-      "price": "5 $",
-      "img": "https://parker.com.ua/14230-large_default/-parker-jotter-17-xl-matt-green-ct-bp-12-332.jpg"
-    }
+   
   ]
 }
