@@ -1,7 +1,10 @@
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom";
 import Data from "../Data"
 
-const Form = () => {
+const Form = ({setUser}) => {
+
+    const navigate = useNavigate();
 
     function submitData(event) {
         event.preventDefault()
@@ -23,8 +26,14 @@ const Form = () => {
         addData,
       } = useContext(Data)
 
+      function singOut() {
+        setUser(null)
+        navigate('/', {replace: true})
+      }
+
   return (
-    <form onSubmit={submitData}>
+    <>
+     <form onSubmit={submitData}>
         <label htmlFor="title">
             title :
             <input type="text" id="title" value={title}
@@ -47,6 +56,10 @@ const Form = () => {
         </label>
         <button>Submit</button>
     </form>
+
+    <button onClick={() => singOut()}>Sing Out</button>
+    </>
+   
   )
 }
 

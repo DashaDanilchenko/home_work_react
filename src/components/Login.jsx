@@ -1,20 +1,21 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import useAuth from './hook/useAuth';
+// import useAuth from './hook/useAuth';
 
-const Login = () => {
+const Login = ({setUser}) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { signIn } = useAuth();
+  // const { signIn } = useAuth();
 
   const fromPage = location.state?.from?.pathname || '/';
-  console.log(fromPage)
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
-    const user = form.userName.value;
-
-    signIn(user, () => navigate(fromPage, {replace: true}));
+    // const user = form.userName.value;
+    setUser(form.userName.value)
+    navigate(fromPage, {replace: true})
+    
+    // signIn(user, () => navigate(fromPage, {replace: true}));
   }
 
   return (

@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
     callback();
   }
 
-  const value = {user, signIn, signOut};
+  const value = {user, signIn, signOut };
   
   return <AuthContext.Provider value={value}>
     { children }

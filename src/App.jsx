@@ -13,6 +13,8 @@ import RequireAuth from './components/authorization/RequireAuth';
 
 function App() {
 
+  const [user, setUser] = useState(null);
+
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
@@ -47,13 +49,13 @@ function App() {
 }
 
 
-  async function addData (title, description, price, photo) {
+  async function addData (title, description, price, img) {
     const newData = {
       id: str_gen(),
       title,
       description,
       price,
-      photo,
+      img,
     }
 
     const res = await fetch("http://localhost:3000/products", { 
@@ -91,11 +93,11 @@ function App() {
         <Route path='/:id' element={<Single />}/>
         <Route path='bucket' element={<Bucket bucket={bucket} read={read} setRead={setRead}/>}/>
         <Route path='newProduct' element={
-          <RequireAuth>
-            <Form/>   
+          <RequireAuth user={user}>
+            <Form setUser={setUser}/>   
            </RequireAuth>
         }/>
-        <Route path="login/" element={ <Login /> } />
+        <Route path="login/" element={ <Login setUser={setUser}/> } />
         <Route path='*' element={<NotFound/>}/>
       <Route/>
         </Route>
