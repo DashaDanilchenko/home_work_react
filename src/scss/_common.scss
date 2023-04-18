@@ -22,3 +22,13 @@
   i {
    transform: scale(1.5);
   }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  
+  }
+
+  label {
+    margin: 15px;
+  }

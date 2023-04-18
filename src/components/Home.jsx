@@ -15,6 +15,7 @@ const Home = ({bucket, setBucket}) => {
   return (
     <div>
          <Link className="link"  to="bucket">Bucket</Link>
+         <Link className="link"  to="newProduct">New Product</Link>
             <div className="list">
                 { products.map((product) => <Product 
                                                 key={ product.id }  
