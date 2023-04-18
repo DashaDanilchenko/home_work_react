@@ -8,6 +8,8 @@ import { Route, Routes } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import Form from './components/Form';
 import Data from './Data';
+import Login from './components/Login';
+import RequireAuth from './components/authorization/RequireAuth';
 
 function App() {
 
@@ -88,7 +90,12 @@ function App() {
         <Route index element={<Home bucket={bucket} setBucket={setBucket}/>}/>
         <Route path='/:id' element={<Single />}/>
         <Route path='bucket' element={<Bucket bucket={bucket} read={read} setRead={setRead}/>}/>
-        <Route path='newProduct' element={<Form/>}/>
+        <Route path='newProduct' element={
+          <RequireAuth>
+            <Form/>   
+           </RequireAuth>
+        }/>
+        <Route path="login/" element={ <Login /> } />
         <Route path='*' element={<NotFound/>}/>
       <Route/>
         </Route>
