@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom"
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo} from "../../store/todoSlise"
+import { addNewTodo} from "../../store/todoSlise"
 import InputField from "../InputField"
-import TodoList from "../TodoList";
+import TodoList from "../TodoList"
 
 const Layout = () => {
 
@@ -13,7 +13,7 @@ const Layout = () => {
   const dispatch = useDispatch()
 
   const addTask = (text) => {
-    dispatch (addTodo({text}))
+    dispatch (addNewTodo(text))
     
   }
 
@@ -29,9 +29,7 @@ const Layout = () => {
     <NavLink to="three" onClick={() => setLocation('three')}   className={setActive}>User 3</NavLink>
    </header>
 
-<main>
- <TodoList setText={setText} location={location}/>
-</main>
+  {location && <TodoList setText={setText} location={location}/>}
 
  </div>
   )

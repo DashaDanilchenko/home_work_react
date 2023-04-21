@@ -1,17 +1,19 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
+import { fetchTodos } from "../store/todoSlise";
 import { useEffect } from "react";
 
+
 const TodoList = ({setText, location}) => {
+    const dispatch = useDispatch()
+
+    console.log(location)
     
-console.log(location)
 const todos = useSelector(state => state.todos.todos)
 
 useEffect (() => {
-    fetch(`http://localhost:3000/${location}`)
-    .then(data => data.json())
-    .then(json => console.log(json))
-})
+    dispatch(fetchTodos())
+}, [dispatch])
 
     return (
         <ul className="todoList">
