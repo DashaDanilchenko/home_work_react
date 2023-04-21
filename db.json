@@ -1,0 +1,18 @@
+{
+  "one": [
+    {
+      "id": 1,
+      "title": "json-server"
+    }
+  ],
+  "two": [
+    {
+      "id": 1,
+      "title": "some comment"
+    }
+  ],
+  "three": {
+    "id": 1,
+    "title":"fkyfkuy"
+  }
+}

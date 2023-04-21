@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home, UserOne, UserTwo, UserThree, NotFound } from "./components/pages";
+import { UserOne, UserTwo, UserThree, NotFound, Layout } from "./components/pages";
 
 function App() {
 
@@ -9,8 +9,7 @@ function App() {
    
       <BrowserRouter>
         <Routes>
-          <Route>
-            <Route path="/" element = {<Home/>}/>
+          <Route path="/" element={<Layout/>}>
             <Route path="one" element = {<UserOne/>}/>
             <Route path="two" element = {<UserTwo/>}/>
             <Route path="three" element = {<UserThree/>}/>

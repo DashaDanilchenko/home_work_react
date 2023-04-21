@@ -1,6 +1,11 @@
-const UserThree = () => {
+import TodoList from '../TodoList'
+
+const UserThree = ({setText}) => {
   return (
-    <div>UserThree</div>
+    <div>
+      <p>user 3</p>
+      <TodoList setText={setText}/>
+    </div>
   )
 }
 

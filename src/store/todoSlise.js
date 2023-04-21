@@ -24,7 +24,6 @@ const todoSlice = createSlice({
                   if (todo.id !== action.payload.id) {
                     return todo;
                   }
-            
                   return { ...todo, completed: !todo.completed }
                 })
         },
