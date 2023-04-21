@@ -17,10 +17,10 @@ const edit = (id, text) => {
             <span className="todoItem__number">{ index + 1 }</span>
             <input onChange={ () => dispatch(toggleTodoCompleted({id})) } checked={ completed } className="todoItem__completed" type="checkbox" name="completed" />
             <p className="todoItem__text">{ text }</p>
-            <button onClick={() => edit(id, text)}><i className="fa-solid fa-square-pen"></i></button>
+            <button onClick={() => edit(id, text)} className="todoItem">&#9998;</button>
             <button onClick={() => dispatch(delTodo({id}))} className="todoItem__del">&times;</button>
         </li>
      );
 }
  
-export default TodoItem;
+export default TodoItem

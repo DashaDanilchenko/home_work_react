@@ -1,38 +1,24 @@
-import { useState } from "react";
-import TodoList from "./components/TodoList";
-import InputField from "./components/InputField";
-import { useDispatch } from "react-redux";
-import { addTodo} from "./store/todoSlise";
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Home, UserOne, UserTwo, UserThree, NotFound } from "./components/pages";
 
 function App() {
-  const [text, setText] =useState('')
-  
-
-  const dispatch = useDispatch()
-
-  const addTask = (text) => {
-    dispatch (addTodo({text}))
-    
-  }
-
-  // const edit = (id, text) => {
-  //   setText(text)
-  //   dispatch(delTodo({id}))
-  // }
 
 
   return (
-    <div className="App">
-
-      <h1>Redux toolkit</h1>
-      <InputField addTask={addTask} text={text} setText={setText}/>
+   
+      <BrowserRouter>
+        <Routes>
+          <Route>
+            <Route path="/" element = {<Home/>}/>
+            <Route path="one" element = {<UserOne/>}/>
+            <Route path="two" element = {<UserTwo/>}/>
+            <Route path="three" element = {<UserThree/>}/>
+            <Route path="*" element = {<NotFound/>}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
       
-      <div className="todoListBlock">
-        <h2>Todo list</h2>
-        <TodoList setText={setText}/>
-      </div>
-      
-    </div>
   );
 }
 
