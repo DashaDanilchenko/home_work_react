@@ -1,7 +1,7 @@
 
 
 
-const InputField = ({ addTask, text, setText}) => {
+const InputField = ({ addTask, text, setText }) => {
 
    
 

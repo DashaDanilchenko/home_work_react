@@ -6,14 +6,13 @@ import { useEffect } from "react";
 
 const TodoList = ({setText, location}) => {
     const dispatch = useDispatch()
-
-    console.log(location)
     
 const todos = useSelector(state => state.todos.todos)
 
+
 useEffect (() => {
-    dispatch(fetchTodos())
-}, [dispatch])
+    dispatch(fetchTodos(location))
+}, [dispatch, location])
 
     return (
         <ul className="todoList">
@@ -24,6 +23,7 @@ useEffect (() => {
                         todo={ todo } 
                         index={ index }
                         setText={ setText }
+                        location={location}
                     />
                 ) 
             }

@@ -1,31 +1,23 @@
 {
   "one": [
     {
-      "id": 1,
-      "text": "json-server",
+      "text": "learn English",
+      "id": "2023-04-22T19:33:52.204Z",
       "completed": false
     }
   ],
   "two": [
     {
-      "id": 4,
-      "text": "some comment",
+      "text": "travel",
+      "id": "2023-04-22T19:34:00.420Z",
       "completed": false
-    },
-    {
-      "text": "vdfvdf",
-      "id": "2023-04-21T18:33:31.436Z",
-      "complete": false
-    },
-    {
-      "text": "btghhhrr",
-      "id": "2023-04-21T18:38:32.446Z",
-      "complete": false
     }
   ],
-  "three": {
-    "id": 1,
-    "text": "fkyfkuy",
-    "completed": false
-  }
+  "three": [
+    {
+      "text": " read a book",
+      "id": "2023-04-22T19:34:08.932Z",
+      "completed": false
+    }
+  ]
 }
