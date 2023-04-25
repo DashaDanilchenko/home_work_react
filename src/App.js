@@ -1,4 +1,4 @@
-import { useAddUserMutation, useGetUserQuery } from './redux';
+import { useAddUserMutation, useGetUserQuery, useDeleteUserMutation } from './redux';
 import './App.css';
 import { useState } from 'react';
 
@@ -12,6 +12,8 @@ function App() {
 
 const [addUser, {isError}] = useAddUserMutation()
 
+const [deleteUser ]= useDeleteUserMutation()
+
 
 
   const handlerNewUser = async () => {
@@ -20,6 +22,10 @@ const [addUser, {isError}] = useAddUserMutation()
       await addUser(user).unwrap()
       setNewUser('')
     }
+  }
+
+  const deleteData = async (id) => {
+    await deleteUser(id).unwrap()
   }
  
 if (isLoading) {
@@ -44,7 +50,9 @@ if (isLoading) {
      </select>
      <ul>
       {
-        data.map(user => <li key={user.id}>{`${user.id} : ${user.login} : ${user.role}`}</li>)
+        data.map(user => <li key={user.id}>{`${user.id} : ${user.login} : ${user.role}`}
+          <button onClick={() => deleteData(user.id)}>Delete</button>
+        </li>)
       }
      </ul>
     </div>
