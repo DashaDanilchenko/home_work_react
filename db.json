@@ -1,23 +1,19 @@
 {
-  "one": [
+  "users": [
     {
-      "text": "learn English",
-      "id": "2023-04-22T19:33:52.204Z",
-      "completed": false
-    }
-  ],
-  "two": [
+      "id": 1,
+      "login": "user1",
+      "role": "admin"
+    },
     {
-      "text": "travel",
-      "id": "2023-04-22T19:34:00.420Z",
-      "completed": false
-    }
-  ],
-  "three": [
+      "id": 2,
+      "login": "user2",
+      "role": "edit"
+    },
     {
-      "text": " read a book",
-      "id": "2023-04-22T19:34:08.932Z",
-      "completed": false
+      "id": 3,
+      "login": "user3",
+      "role": "ghost"
     }
   ]
 }
