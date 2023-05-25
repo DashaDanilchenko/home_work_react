@@ -20,8 +20,8 @@ const SinglePizza: FC<ISinglePizzaProps> = ({pizza, delPizza}) => {
             </div>
             
             <div className="action-block">
-                <div onClick={() => delPizza(pizza.id) } className="action-item edit"><AiFillEdit color="green" size="30px"/></div>
-                <div className="action-item del"><AiFillDelete color="red" size="30px"/></div>
+                <div  className="action-item edit"><AiFillEdit color="green" size="30px"/></div>
+                <div onClick={() => delPizza(pizza.id) } className="action-item del"><AiFillDelete color="red" size="30px"/></div>
             </div>
         </div>
     )

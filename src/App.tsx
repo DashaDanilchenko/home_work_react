@@ -13,6 +13,7 @@ const App: FC = () => {
 
   const delPizza = (id: number) => {
     console.log(`del pizza ${id}`);
+    setPizzasList(pizzasList.filter(pizza => pizza.id !== id))
   }
 
   return (
